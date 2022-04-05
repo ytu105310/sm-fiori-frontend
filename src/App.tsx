@@ -1,28 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import TimeTrackingForm from './componenets/TimeTrackingForm';
+import {
+  BrowserRouter as Router,  
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import Login from "./componenets/Login";
 
-function App() {
+
+import TimeTrackingForm from "./componenets/TimeTrackingForm";
+
+const App = () => {
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <TimeTrackingForm></TimeTrackingForm>
+    <div className='App'>
+    {/* <Navbar></Navbar> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route index element={<TimeTrackingForm />} />
+        <Route path="login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
